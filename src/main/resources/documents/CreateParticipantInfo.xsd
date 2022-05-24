@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="urn:customs.ru:gwadmin:CreateParticipantInfo:1.0" elementFormDefault="qualified" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:cpi="urn:customs.ru:gwadmin:CreateParticipantInfo:1.0"
+           xmlns:st="urn:customs.ru:gwadmin:SimpleType:1.0"
+           xmlns:ct="urn:customs.ru:gwadmin:ComplexType:1.0">
+
+    <xs:import namespace="urn:customs.ru:gwadmin:SimpleType:1.0" schemaLocation="SimpleType.xsd"/>
+    <xs:import namespace="urn:customs.ru:gwadmin:ComplexType:1.0" schemaLocation="ComplexType.xsd"/>
+
+	<xs:element name="CreateParticipantInfo" type="cpi:CreateParticipantInfoType"/>
+	<xs:complexType name="CreateParticipantInfoType">
+		<xs:annotation>
+			<xs:documentation>Уведомление о регистрации точки подключения</xs:documentation>
+		</xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="ct:BaseDocType">
+                <xs:sequence>
+                    <xs:element name="ParticipantId" type="st:ParticipantId">
+                        <xs:annotation>
+                            <xs:documentation>Идентификатор участника ВЭД</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="TransportAddress" type="xs:token">
+                        <xs:annotation>
+                            <xs:documentation>Транспортный адрес</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="Email" type="xs:token" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>Электронная почта</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="Password" type="xs:token" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>Пароль</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+	</xs:complexType>
+</xs:schema>

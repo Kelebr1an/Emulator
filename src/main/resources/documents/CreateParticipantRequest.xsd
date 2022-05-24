@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cpr="urn:customs.ru:gwadmin:CreateParticipantRequest:1.0" xmlns:st="urn:customs.ru:gwadmin:SimpleType:1.0" xmlns:ct="urn:customs.ru:gwadmin:ComplexType:1.0" targetNamespace="urn:customs.ru:gwadmin:CreateParticipantRequest:1.0" elementFormDefault="qualified" version="1.0">
+	<xs:import namespace="urn:customs.ru:gwadmin:SimpleType:1.0" schemaLocation="SimpleType.xsd"/>
+	<xs:import namespace="urn:customs.ru:gwadmin:ComplexType:1.0" schemaLocation="ComplexType.xsd"/>
+	<xs:element name="CreateParticipantRequest" type="cpr:CreateParticipantRequestType"/>
+	<xs:complexType name="CreateParticipantRequestType">
+		<xs:annotation>
+			<xs:documentation>Уведомление о регистрации участника ВЭД</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ct:BaseDocType">
+				<xs:sequence>
+					<xs:element name="ParticipantMode" type="st:ParticipantMode"/>
+					<xs:element name="OrganizationInfo" type="ct:OrganizationInfoType"/>
+					<xs:element name="ParticipantInfo" type="ct:ParticipantInfoType"/>
+					<xs:element name="WarehouseInfo" minOccurs="0" type="cpr:WarehouseInfoType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="WarehouseInfoType">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="SvhInfo" type="ct:SvhInfoWithBodyType"/>
+				<xs:element name="EcopInfo" type="ct:EcopInfoWithBodyType"/>
+				<xs:element name="MmpoInfo" type="ct:MmpoInfoType"/>
+				<xs:element name="OtherInfo" type="ct:OtherInfoWithBodyType"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

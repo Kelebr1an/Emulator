@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cpn="urn:customs.ru:gwadmin:CreateParticipantNotification:1.0" xmlns:st="urn:customs.ru:gwadmin:SimpleType:1.0" xmlns:ct="urn:customs.ru:gwadmin:ComplexType:1.0" targetNamespace="urn:customs.ru:gwadmin:CreateParticipantNotification:1.0" elementFormDefault="qualified" version="1.0">
+	<xs:import namespace="urn:customs.ru:gwadmin:SimpleType:1.0" schemaLocation="SimpleType.xsd"/>
+	<xs:import namespace="urn:customs.ru:gwadmin:ComplexType:1.0" schemaLocation="ComplexType.xsd"/>
+	<xs:element name="CreateParticipantNotification" type="cpn:CreateParticipantNotificationType"/>
+	<xs:complexType name="CreateParticipantNotificationType">
+		<xs:annotation>
+			<xs:documentation>Уведомление участника ВЭД о регистрации точки ИО</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ct:BaseDocType">
+				<xs:sequence>
+					<xs:element name="ParticipantMode" type="st:ParticipantMode"/>
+					<xs:element name="ParticipantId" type="st:ParticipantId"/>
+					<xs:element name="TransportAddress" type="xs:token"/>
+					<xs:element name="Email" type="xs:token" minOccurs="0"/>
+					<xs:element name="Password" type="xs:token" minOccurs="0"/>
+					<xs:element name="OrganizationInfo" type="ct:OrganizationInfoType"/>
+					<xs:element name="ParticipantInfo" type="ct:ParticipantInfoType"/>
+					<xs:element name="WarehouseInfo" type="cpn:WarehouseInfoType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="WarehouseInfoType">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="SvhLicenseNumber" type="st:SvhLicenseNumber"/>
+				<xs:element name="EcopInfo" type="ct:EcopInfoType"/>
+				<xs:element name="MmpoInfo" type="ct:MmpoInfoType"/>
+				<xs:element name="OtherInfo" type="ct:OtherInfoType"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

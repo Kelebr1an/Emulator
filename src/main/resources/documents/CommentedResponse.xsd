@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:md="urn:customs.ru:gwadmin:CommentedResponse:1.0" xmlns:ct="urn:customs.ru:gwadmin:ComplexType:1.0" targetNamespace="urn:customs.ru:gwadmin:CommentedResponse:1.0" elementFormDefault="qualified" version="1.0">
+	<xs:import namespace="urn:customs.ru:gwadmin:ComplexType:1.0" schemaLocation="ComplexType.xsd"/>
+	<xs:element name="CommentedResponse" type="md:CommentedResponseType"/>
+	<xs:complexType name="CommentedResponseType">
+		<xs:annotation>
+			<xs:documentation>Ответ с примечанием</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ct:BaseDocType">
+				<xs:sequence>
+					<xs:element name="Comment">
+						<xs:annotation>
+							<xs:documentation>Примечание</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="1024"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

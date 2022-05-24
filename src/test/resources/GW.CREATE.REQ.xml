@@ -1,0 +1,72 @@
+<Envelope
+        xmlns="http://www.w3.org/2001/06/soap-envelope">
+    <Header>
+        <RoutingInf xmlns="urn:customs.ru:Envelope:RoutingInf:1.0">
+            <EnvelopeID>6c2ca78f-c5e4-4a16-87b3-c38f1f907381</EnvelopeID>
+            <SenderInformation>PortalCc</SenderInformation>
+            <ReceiverInformation>CustomsRegistration</ReceiverInformation>
+            <PreparationDateTime>2020-06-22T10:37:35</PreparationDateTime>
+            <Priority>4</Priority>
+        </RoutingInf>
+        <GWHeader xmlns="urn:customs.ru:gwadmin:GWHeader:1.0">
+            <MessageType>GW.CREATE.REQ</MessageType>
+            <InfoBrokerId>60573e4c-2e6f-4a97-ac8a-598323708a31</InfoBrokerId>
+        </GWHeader>
+    </Header>
+    <Body>
+        <Signature
+                xmlns="http://www.w3.org/2000/09/xmldsig#">
+            <SignedInfo>
+                <CanonicalizationMethod Algorithm="urn:xml-dsig:transformation:v1.1"/>
+                <SignatureMethod
+                        Algorithm="urn:ietf:params:xml:ns:cpxmlsec:algorithms:gostr34102012-gostr34112012-256"/>
+                <Reference URI="#KeyInfo">
+                    <Transforms>
+                        <Transform Algorithm="urn:xml-dsig:transformation:v1.1"/>
+                    </Transforms>
+                    <DigestMethod Algorithm="urn:ietf:params:xml:ns:cpxmlsec:algorithms:gostr34112012-256"/>
+                    <DigestValue>L8mdRBHERWNmXy52xplENrH5jT8gxvm+igkJE02H3mk=</DigestValue>
+                </Reference>
+                <Reference URI="#Object">
+                    <Transforms>
+                        <Transform Algorithm="urn:xml-dsig:transformation:v1.1"/>
+                    </Transforms>
+                    <DigestMethod Algorithm="urn:ietf:params:xml:ns:cpxmlsec:algorithms:gostr34112012-256"/>
+                    <DigestValue>v9mLPfo5mGi8fu4GiuEWbYe0wV0/zzrDmHnzW5OH0U0=</DigestValue>
+                </Reference>
+            </SignedInfo>
+            <SignatureValue>
+                MIIEfgYJKoZIhvcNAQcCoIIEbzCCBGsCAQExDjAMBggqhQMHAQECAgUAMAsGCSqGSIb3DQEHATGCBEcwggRDAgEBMIIBizCCAXQxIDAeBgkqhkiG9w0BCQEWEWNhQGN1c3RvbXNjYXJkLnJ1MRgwFgYFKoUDZAESDTEwMjc3Mzk3MDM2NzIxGjAYBggqhQMDgQMBARIMMDA3NzEwMzU3MzQzMQswCQYDVQQGEwJSVTEcMBoGA1UECAwTNzcg0LMuINCc0L7RgdC60LLQsDEZMBcGA1UEBwwQ0LMuINCc0L7RgdC60LLQsDE4MDYGA1UECQwv0J/Qu9C+0YLQvdC40LrQvtCyINC/0LXRgCwg0LQuIDE5LzM4LCDRgdGC0YAuIDIxMDAuBgNVBAsMJ9Cj0LTQvtGB0YLQvtCy0LXRgNGP0Y7RidC40Lkg0YbQtdC90YLRgDEzMDEGA1UECgwq0J7QntCeIMKr0KLQsNC80L7QttC10L3QvdCw0Y8g0LrQsNGA0YLQsMK7MTMwMQYDVQQDDCrQntCe0J4gwqvQotCw0LzQvtC20LXQvdC90LDRjyDQutCw0YDRgtCwwrsCEQHmjHIAIKuHhE2uubz6k+F4MAwGCCqFAwcBAQICBQCgggJPMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTIwMDYyMjA3MzczNVowLwYJKoZIhvcNAQkEMSIEIHHjCjjdukmVOsMicl5y3YrrwA8UhNVxdlAKYzSVFK1DMIIB4gYLKoZIhvcNAQkQAi8xggHRMIIBzTCCAckwggHFMAoGCCqFAwcBAQICBCAgOqDP2/9ByUCBhMht6qEHLd9ogf368cpJvAi7KOQNJjCCAZMwggF8pIIBeDCCAXQxIDAeBgkqhkiG9w0BCQEWEWNhQGN1c3RvbXNjYXJkLnJ1MRgwFgYFKoUDZAESDTEwMjc3Mzk3MDM2NzIxGjAYBggqhQMDgQMBARIMMDA3NzEwMzU3MzQzMQswCQYDVQQGEwJSVTEcMBoGA1UECAwTNzcg0LMuINCc0L7RgdC60LLQsDEZMBcGA1UEBwwQ0LMuINCc0L7RgdC60LLQsDE4MDYGA1UECQwv0J/Qu9C+0YLQvdC40LrQvtCyINC/0LXRgCwg0LQuIDE5LzM4LCDRgdGC0YAuIDIxMDAuBgNVBAsMJ9Cj0LTQvtGB0YLQvtCy0LXRgNGP0Y7RidC40Lkg0YbQtdC90YLRgDEzMDEGA1UECgwq0J7QntCeIMKr0KLQsNC80L7QttC10L3QvdCw0Y8g0LrQsNGA0YLQsMK7MTMwMQYDVQQDDCrQntCe0J4gwqvQotCw0LzQvtC20LXQvdC90LDRjyDQutCw0YDRgtCwwrsCEQHmjHIAIKuHhE2uubz6k+F4MAwGCCqFAwcBAQEBBQAEQFphD9qyCPVmvVLzZPJUOqgBiY7KARk3RqnbXJQUwbOGGOVUYf6Wrc5UuHiG4EQLPSeBd/MbJjzutm0ThgSW7qw=
+            </SignatureValue>
+            <KeyInfo Id="KeyInfo">
+                <X509Data>
+                    <X509Certificate>
+                        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
+                    </X509Certificate>
+                </X509Data>
+            </KeyInfo>
+            <Object Id="Object">
+                <CreateParticipantRequest
+                        xmlns="urn:customs.ru:gwadmin:CreateParticipantRequest:1.0">
+                    <DocumentID xmlns="urn:customs.ru:gwadmin:ComplexType:1.0">3d457695-8404-4261-a052-059fd4bee306</DocumentID>
+                    <ParticipantMode>ED</ParticipantMode>
+                    <OrganizationInfo>
+                        <Title xmlns="urn:customs.ru:gwadmin:ComplexType:1.0">ИНДИВИДУАЛЬНЫЙ ПРЕДПРИНИМАТЕЛЬ ВОЛОШКИН
+                            АЛЕКСЕЙ АЛЕКСАНДРОВИЧ
+                        </Title>
+                        <Inn xmlns="urn:customs.ru:gwadmin:ComplexType:1.0">773175231270</Inn>
+                        <Ogrn xmlns="urn:customs.ru:gwadmin:ComplexType:1.0">315504400001246</Ogrn>
+                        <Address xmlns="urn:customs.ru:gwadmin:ComplexType:1.0">141552, МОСКОВСКАЯ ОБЛАСТЬ,
+                            СОЛНЕЧНОГОРСКИЙ Р-ОН, РП РЖАВКИ, Д. 11, КВ. 59.
+                        </Address>
+                    </OrganizationInfo>
+                    <ParticipantInfo>
+                        <DocBasisType xmlns="urn:customs.ru:gwadmin:ComplexType:1.0">CONTRACT</DocBasisType>
+                        <DocBasisNumber xmlns="urn:customs.ru:gwadmin:ComplexType:1.0">3</DocBasisNumber>
+                        <DocBasisDate xmlns="urn:customs.ru:gwadmin:ComplexType:1.0">2020-06-22</DocBasisDate>
+                    </ParticipantInfo>
+                </CreateParticipantRequest>
+            </Object>
+        </Signature>
+    </Body>
+</Envelope>

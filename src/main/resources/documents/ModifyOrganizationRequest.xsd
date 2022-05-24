@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mor="urn:customs.ru:gwadmin:ModifyOrganizationRequest:1.0" xmlns:st="urn:customs.ru:gwadmin:SimpleType:1.0" xmlns:ct="urn:customs.ru:gwadmin:ComplexType:1.0" targetNamespace="urn:customs.ru:gwadmin:ModifyOrganizationRequest:1.0" elementFormDefault="qualified" version="1.0">
+	<xs:import namespace="urn:customs.ru:gwadmin:SimpleType:1.0" schemaLocation="SimpleType.xsd"/>
+	<xs:import namespace="urn:customs.ru:gwadmin:ComplexType:1.0" schemaLocation="ComplexType.xsd"/>
+	<xs:element name="ModifyOrganizationRequest" type="mor:ModifyOrganizationRequestType"/>
+	<xs:complexType name="ModifyOrganizationRequestType">
+		<xs:annotation>
+			<xs:documentation>Запрос на внесение изменений в данные организации</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ct:BaseDocType">
+				<xs:sequence>
+					<xs:element name="ParticipantId" type="st:ParticipantId">
+						<xs:annotation>
+							<xs:documentation>Идентификатор точки подключения</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="OrganizationInfo" type="ct:OrganizationModifyType">
+						<xs:annotation>
+							<xs:documentation>Данные организации</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

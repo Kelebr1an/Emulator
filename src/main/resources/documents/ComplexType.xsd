@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:st="urn:customs.ru:gwadmin:SimpleType:1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ct="urn:customs.ru:gwadmin:ComplexType:1.0" targetNamespace="urn:customs.ru:gwadmin:ComplexType:1.0" elementFormDefault="qualified" version="1.0.0">
+	<xs:import namespace="urn:customs.ru:gwadmin:SimpleType:1.0" schemaLocation="SimpleType.xsd"/>
+	<xs:annotation>
+		<xs:documentation>Составные прикладные типы</xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="BaseDocType">
+		<xs:annotation>
+			<xs:documentation>Базовый тип для электронного документа</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="DocumentID" type="st:GUID">
+				<xs:annotation>
+					<xs:documentation>Уникальный идентификатор документа</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RefDocumentID" type="st:GUID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Уникальный идентификатор исходного документа</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DocumentBodyType">
+		<xs:annotation>
+			<xs:documentation>Графический документ</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="FileName">
+				<xs:annotation>
+					<xs:documentation>Имя файла</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FileData" type="st:Text3MB">
+				<xs:annotation>
+					<xs:documentation>Данные файла  в кодировке BASE64</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OrganizationModifyType">
+		<xs:annotation>
+			<xs:documentation>Реквизиты организации</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Title" type="st:LongText" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Название</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Inn">
+				<xs:annotation>
+					<xs:documentation>ИНН</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Kpp" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>КПП</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Ogrn" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>ОГРН</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Address" type="st:LongText" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Адрес</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OrganizationInfoType">
+		<xs:annotation>
+			<xs:documentation>Реквизиты организации</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Title" type="st:LongText">
+				<xs:annotation>
+					<xs:documentation>Название</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Inn">
+				<xs:annotation>
+					<xs:documentation>ИНН</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Kpp" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>КПП</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Ogrn">
+				<xs:annotation>
+					<xs:documentation>ОГРН</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Address" type="st:LongText" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Адрес</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OrganizationFNSInfoType">
+		<xs:annotation>
+			<xs:documentation>Реквизиты организации в ФНС</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Inn" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>ИНН</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Kpp" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>КПП</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Ogrn" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>ОГРН</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ParticipantInfoType">
+		<xs:annotation>
+			<xs:documentation>Данные точки подключения.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="OrgTitleTransliterated" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Название организации (транслитерация)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="16"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DocBasisType" type="st:DocumentBasisType">
+				<xs:annotation>
+					<xs:documentation>Тип документа-основания</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DocBasisNumber">
+				<xs:annotation>
+					<xs:documentation>Номер документа-основания</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DocBasisDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>Дата документа-основания</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SvhInfoWithBodyType">
+		<xs:annotation>
+			<xs:documentation>Реквизиты СВХ</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="SvhLicenseNumber" type="st:SvhLicenseNumber">
+				<xs:annotation>
+					<xs:documentation>Номер свидетельства о включении в реестр владельцев СВХ</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DocumentBody" type="ct:DocumentBodyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Сканированная копия документа-основания</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EcopInfoWithBodyType">
+		<xs:annotation>
+			<xs:documentation>Реквизиты УЭО</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EcopLicenseNumber" type="st:EcopLicenseNumber">
+				<xs:annotation>
+					<xs:documentation>Номер свидтельства о включении в реестр УЭО</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CustomsCode" type="st:CustomsCode">
+				<xs:annotation>
+					<xs:documentation>Код таможенного органа</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DocumentBody" type="ct:DocumentBodyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Сканированная копия документа-основания</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MmpoInfoType">
+		<xs:annotation>
+			<xs:documentation>Реквизиты ММПО</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Index">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:pattern value="[0-9]{6}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="MmpoName" type="st:LongText" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Наименование ММПО</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Address" type="st:LongText" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Адрес ММПО</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OtherInfoWithBodyType">
+		<xs:annotation>
+			<xs:documentation>Другие основания подключения</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CustomsCode" type="st:CustomsCode">
+				<xs:annotation>
+					<xs:documentation>Код таможенного органа</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Address" type="st:LongText">
+				<xs:annotation>
+					<xs:documentation>Адрес склада хранения</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DocumentBody" type="ct:DocumentBodyType">
+				<xs:annotation>
+					<xs:documentation>Сканированная копия документа-основания</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EcopInfoType">
+		<xs:annotation>
+			<xs:documentation>Реквизиты УЭО</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EcopLicenseNumber" type="st:EcopLicenseNumber">
+				<xs:annotation>
+					<xs:documentation>Номер свидетельства о включении в реестр УЭО</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CustomsCode" type="st:CustomsCode">
+				<xs:annotation>
+					<xs:documentation>Код таможенного органа</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OtherInfoType">
+		<xs:annotation>
+			<xs:documentation>Другие основания подключения</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CustomsCode" type="st:CustomsCode">
+				<xs:annotation>
+					<xs:documentation>Код таможенного органа</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Address" type="st:LongText">
+				<xs:annotation>
+					<xs:documentation>Адрес склада хранения</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

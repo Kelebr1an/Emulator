@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mpn="urn:customs.ru:gwadmin:ModifyParticipantNotification:1.0" xmlns:st="urn:customs.ru:gwadmin:SimpleType:1.0" xmlns:ct="urn:customs.ru:gwadmin:ComplexType:1.0" targetNamespace="urn:customs.ru:gwadmin:ModifyParticipantNotification:1.0" elementFormDefault="qualified" version="1.0">
+	<xs:import namespace="urn:customs.ru:gwadmin:SimpleType:1.0" schemaLocation="SimpleType.xsd"/>
+	<xs:import namespace="urn:customs.ru:gwadmin:ComplexType:1.0" schemaLocation="ComplexType.xsd"/>
+	<xs:element name="ModifyParticipantNotification" type="mpn:ModifyParticipantNotificationType"/>
+	<xs:complexType name="ModifyParticipantNotificationType">
+		<xs:annotation>
+			<xs:documentation>Уведомление участника Вэд о изменении реквизитов точки подключения</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ct:BaseDocType">
+				<xs:sequence>
+					<xs:element name="ParticipantMode" type="st:ParticipantMode"/>
+					<xs:element name="Password" type="xs:token" minOccurs="0"/>
+					<xs:element name="ParticipantId" type="st:ParticipantId"/>
+					<xs:element name="ParticipantInfo" type="ct:ParticipantInfoType" minOccurs="0"/>
+					<xs:element name="WarehouseInfo" type="mpn:WarehouseInfoType" minOccurs="0"/>
+					<xs:element name="ProtocolType" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Принимает значения: MQ; SMТP.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="WarehouseInfoType">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="SvhLicenseNumber" type="st:SvhLicenseNumber"/>
+				<xs:element name="EcopInfo" type="ct:EcopInfoType"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

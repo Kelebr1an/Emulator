@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="urn:customs.ru:gwadmin:GWHeader:1.0" elementFormDefault="qualified" version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:gwahead="urn:customs.ru:gwadmin:GWHeader:1.0"
+           xmlns:st="urn:customs.ru:gwadmin:SimpleType:1.0">
+
+    <xs:import namespace="urn:customs.ru:gwadmin:SimpleType:1.0" schemaLocation="SimpleType.xsd"/>
+
+	<xs:element name="GWHeader" type="gwahead:GWHeaderType"/>
+	<xs:complexType name="GWHeaderType">
+		<xs:annotation>
+			<xs:documentation>Заголовок для процесса автоматизированной регистрации участников ВЭД</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MessageType" type="xs:token">
+				<xs:annotation>
+					<xs:documentation>Тип сообщения</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InfoBrokerId" type="st:GUID">
+				<xs:annotation>
+					<xs:documentation>Идентификатор информационного оператора</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

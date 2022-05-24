@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:osved_emul_dev;DB_CLOSE_DELAY=-1
+mq:
+  queueManager: TKMQL.QM
+  channel: OSVED.L.SC.CH
+  connName: 10.20.20.34(1414)
+  user:
+  password:
+  queues:
+    in: DE.EMU.REG.REQ.LQ
+    out: DE.EMU.REG.CFR.LQ
+settings:
+  innChecker: false

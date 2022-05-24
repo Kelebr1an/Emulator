@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mpr="urn:customs.ru:gwadmin:ModifyParticipantRequest:1.0" xmlns:st="urn:customs.ru:gwadmin:SimpleType:1.0" xmlns:ct="urn:customs.ru:gwadmin:ComplexType:1.0" targetNamespace="urn:customs.ru:gwadmin:ModifyParticipantRequest:1.0" elementFormDefault="qualified" version="1.0">
+	<xs:import namespace="urn:customs.ru:gwadmin:SimpleType:1.0" schemaLocation="SimpleType.xsd"/>
+	<xs:import namespace="urn:customs.ru:gwadmin:ComplexType:1.0" schemaLocation="ComplexType.xsd"/>
+	<xs:element name="ModifyParticipantRequest" type="mpr:ModifyParticipantRequestType"/>
+	<xs:complexType name="ModifyParticipantRequestType">
+		<xs:annotation>
+			<xs:documentation>Запрос на изменение реквизитов точки подключения</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ct:BaseDocType">
+				<xs:sequence>
+					<xs:element name="ParticipantId" type="st:ParticipantId"/>
+					<xs:element name="WarehouseInfo" type="mpr:WarehouseInfoType"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="WarehouseInfoType">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="SvhInfo" type="ct:SvhInfoWithBodyType"/>
+				<xs:element name="EcopInfo" type="ct:EcopInfoWithBodyType"/>
+				<xs:element name="OtherInfo" type="ct:OtherInfoWithBodyType"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

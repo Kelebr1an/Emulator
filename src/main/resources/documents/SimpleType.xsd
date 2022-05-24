@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:customs.ru:gwadmin:SimpleType:1.0" elementFormDefault="qualified" version="1.0.0">
+	<xs:annotation>
+		<xs:documentation>Простые прикладные типы</xs:documentation>
+	</xs:annotation>
+	<xs:simpleType name="GUID">
+		<xs:annotation>
+			<xs:documentation>Глобальный идентификатор</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:pattern value="[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}" id="guidPattern"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ParticipantId">
+		<xs:annotation>
+			<xs:documentation>Идентификатор участника ВЭД</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:pattern value="[0-9]{1,15}" id="participantIdPattern"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DocumentBasisType">
+		<xs:annotation>
+			<xs:documentation>Тип документа-основания</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="AGREEMENT"/>
+			<xs:enumeration value="LETTER"/>
+			<xs:enumeration value="REQUEST"/>
+			<xs:enumeration value="CONTRACT"/>
+			<xs:enumeration value="ORDER"/>
+			<xs:enumeration value="ADDITIONAL_AGREEMENT"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ProtocolType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="MQ"/>
+			<xs:enumeration value="SMTP"/>
+			<xs:enumeration value="HTTP"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ParticipantMode">
+		<xs:annotation>
+			<xs:documentation>Режим точки подключения</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="ED"/>
+			<xs:enumeration value="WAREHOUSE"/>
+			<xs:enumeration value="ED_WAREHOUSE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Text3MB">
+		<xs:annotation>
+			<xs:documentation>Текстовая информация. До 3Мбайт</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="4404019"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SvhLicenseNumber">
+		<xs:annotation>
+			<xs:documentation>Номер свидтельства о включении в реестр владельцев СВХ</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:pattern value="[0-9]{5}/[0-9]{6}|[0-9]{5}/[0-9]{6}/[0-9]{5}/[0-9]{1}|[0-9]{5}/[0-9]{6}/[0-9]{5}/[0-9]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EcopLicenseNumber">
+		<xs:annotation>
+			<xs:documentation>Номер свидтельства о включении в реестр УЭО</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:pattern value="10000/[0-9]{4}\p{L}?"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CustomsCode">
+		<xs:annotation>
+			<xs:documentation>Код таможеного органа</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:pattern value="[0-9]{8}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LongText">
+		<xs:annotation>
+			<xs:documentation>Длинная символьная строка (адрес, комментарий и т.п.)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:maxLength value="1024"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
